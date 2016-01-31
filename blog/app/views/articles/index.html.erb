@@ -1,1 +1,17 @@
-this is index file
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>&nbsp;
+      <td><%= article.text %></td>
+    <td><%=  link_to 'Show',article_path(article)%></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New article', new_article_path %>
