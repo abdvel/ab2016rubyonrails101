@@ -1,0 +1,23 @@
+.panel-heading
+  %i.icon-table.icon-large
+  = t('tt.index', resource_name: Post.model_name.human)
+  = link_to 'Yeni yazi', new_post_path,  class: 'btn btn-large btn-success' , method: :get
+  .panel-tools
+    .btn-group
+      %a.btn{href: posts_path, data: {toggle: 'toolbar-tooltip'}, title: 'Reload'}
+        %i.icon-refresh
+    .badge= @posts.total_entries
+.panel-body.filters
+  = render 'filters'
+%table.table
+  %thead
+    %tr
+      %th #
+      %th= sort_link(@search, :title, t('activerecord.attributes.post.title'))
+      %th= sort_link(@search, :body, t('activerecord.attributes.post.body'))
+      %th= sort_link(@search, :is, t('activerecord.attributes.post.is'))
+      %th= sort_link(@search, :_public, t('activerecord.attributes.post._public'))
+      %th.actions
+        Actions
+  %tbody
+    = render @posts

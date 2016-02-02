@@ -1,7 +1,9 @@
 .jumbotron
   %h1 Welcome to note
+  = link_to 'Yeni yazi', new_post_path,  class: 'btn btn-large btn-success' , method: :get
+  = link_to 'Yazilar', posts_path,  class: 'btn btn-large btn-success' , method: :get
   - if current_user
-    = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-large', method: :delete
+    = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-large btn-primary', method: :delete
     .row-fluid.marketing
       %p
         %strong Name:

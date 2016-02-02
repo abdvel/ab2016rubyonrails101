@@ -1,0 +1,13 @@
+%tr
+  %td= post.id
+  %td= post.title
+  %td= post.body
+  %td= post.is
+  
+  %td.action
+    = link_to(post, class: 'btn btn-success', toogle: 'tooltip', title: t('tooltips.zoom')) do
+      Detay
+    = link_to(edit_post_path(post) , class: 'btn btn-info') do
+      Edit
+    = link_to(post, class: 'btn btn-danger', method: :delete) do
+      Sil
