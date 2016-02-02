@@ -10,14 +10,15 @@
     .container-narrow
       .masthead
         %ul.nav.nav-pills.pull-right
-          %li.active
-            %a{:href => "/"} Home
-          %li
-            %a{:href => "/rails/routes"} Routes
+          = link_to 'Home', root_path, class: 'btn btn-sm btn-info', method: :get
+          -if user_signed_in?
+            = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-sm btn-danger', method: :delete
+          -else
+            = link_to 'Sign in', new_user_session_path, class: 'btn btn-sm btn-info'
         %h3.muted= link_to "note", root_path
       %hr/
       = render partial: 'layouts/partials/messages'
       = yield
       %hr/
       .footer
-        %p © Company 2013
+        %p © Ab 2016 - Ruby on Rails
