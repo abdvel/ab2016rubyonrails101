@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :article1s
 resources :articles
   root 'welcome#index'
