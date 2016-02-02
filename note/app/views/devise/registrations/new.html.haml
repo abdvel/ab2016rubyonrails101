@@ -1,0 +1,12 @@
+%h2
+  = t('devise.registration.new.title', model: resource.class.model_name.human)
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, :autofocus => true
+    = f.input :email, :required => true
+    = f.input :password, :required => true
+    = f.input :password_confirmation, :required => true
+  .form-actions
+    = f.button :submit, t('devise.registration.new.button'), class: 'btn btn-primary'
+= render "devise/shared/links"
