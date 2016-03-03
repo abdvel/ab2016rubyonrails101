@@ -1,12 +1,2 @@
-<h1> Hello World</h1>
-<h1>Number=<%= @number %> from welcome controller</h1>
-
-<h1>Hello <%=current_user.email if user_signed_in?%> </h1>
-
-<%if user_signed_in?%>
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to 'Sign in', user_session_path, method: :post %>
-<%= link_to 'Sign up', new_user_registration_path, method: :get %>
-<% end %>
-<%= link_to 'My Blog', articles_path %>
+<h1> Hello, Rails!</h1>
+<%= link_to 'My blog', controller: 'articles' %>
